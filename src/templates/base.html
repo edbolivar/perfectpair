@@ -1,0 +1,265 @@
+{% load static %}
+{% load fontawesome %}
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+      svg {
+        max-width: 30rem;
+        width: 100%;
+        height: auto;
+        fill: none;
+        stroke: white;
+        stroke-width: 8;
+      }
+      svg tspan > tspan {
+        stroke-dasharray: 1500;
+        stroke-dashoffset: -1500;
+      }
+      svg tspan > tspan:nth-of-type(1) {
+        -webkit-animation: draw 300ms 150ms forwards;
+        animation: draw 300ms 150ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(2) {
+        -webkit-animation: draw 300ms 300ms forwards;
+        animation: draw 300ms 300ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(3) {
+        -webkit-animation: draw 300ms 450ms forwards;
+        animation: draw 300ms 450ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(4) {
+        -webkit-animation: draw 300ms 600ms forwards;
+        animation: draw 300ms 600ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(5) {
+        -webkit-animation: draw 300ms 750ms forwards;
+        animation: draw 300ms 750ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(6) {
+        -webkit-animation: draw 300ms 900ms forwards;
+        animation: draw 300ms 900ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(7) {
+        -webkit-animation: draw 300ms 1050ms forwards;
+        animation: draw 300ms 1050ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(8) {
+        -webkit-animation: draw 300ms 1200ms forwards;
+        animation: draw 300ms 1200ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(9) {
+        -webkit-animation: draw 300ms 1350ms forwards;
+        animation: draw 300ms 1350ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(10) {
+        -webkit-animation: draw 300ms 1500ms forwards;
+        animation: draw 300ms 1500ms forwards;
+      }
+      svg tspan > tspan:nth-of-type(11) {
+        -webkit-animation: draw 300ms 1650ms forwards;
+        animation: draw 300ms 1650ms forwards;
+      }
+      @-webkit-keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes draw {
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+
+
+  <section style="background-color: rgb(30,30,30);">
+      <svg viewBox="0 0 1418 116" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <title>PerfectPair</title>
+        <g stroke="none" fill="none" fill-rule="evenodd" fill-opacity="0">
+          <text id="@WebDesignerMag" stroke="#fff" fill="#645F5A" font-weight="normal"
+            font-family="PermanentMarker-Regular, Permanent Marker" font-size="144">
+            <tspan x="3" y="109">
+              <!--
+					-->
+              <tspan>P</tspan>
+              <!--
+					-->
+              <tspan>e</tspan>
+              <!--
+					-->
+              <tspan>r</tspan>
+              <!--
+					-->
+              <tspan>f</tspan>
+              <!--
+					-->
+              <tspan>e</tspan>
+              <!--
+					-->
+              <tspan>c</tspan>
+              <!--
+					-->
+              <tspan>t</tspan>
+              <!--
+					-->
+              <tspan>p</tspan>
+              <!--
+					-->
+              <tspan>a</tspan>
+              <!--
+					-->
+              <tspan>i</tspan>
+              <!--
+					-->
+              <tspan>r</tspan>
+            </tspan>
+          </text>
+        </g>
+      </svg>
+    <!-- <h1 class="d-inline bg-warning">Login/Logout</h1> -->
+	</section>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      {% if user.is_authenticated %}
+      <div class="con2" id="secondnav"> 
+      {% else %}
+      <div class="con1" id="secondnav">
+      {% endif %}
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse con" id="navbakrNavDropdown">
+            <ul class="navbar-nav">
+              <li>
+                <form  class="form-inline my-2 my-lg-0" action='/shoe/s'>
+                    <input class="form-control mr-sm-2" type="search" name='q' placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i
+                        class="fas fa-search"></i> Search for Products</button>
+                  </form>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home fa-lg"></i> Home <span
+                      class="sr-only"></span></a>
+              </li>
+              
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'shoe:new_arrivals' %}"><i
+                    class="fas fa-prescription-bottle-alt fa-lg"></i> New Arrivals</a>
+              </li>
+
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-male fa-lg"></i> Men
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'shoe:men_sneakers' %}">Sneakers</a>
+                  <a class="dropdown-item" href="{% url 'shoe:men_business' %}">Business</a>
+                  <a class="dropdown-item" href="{% url 'shoe:men_casual' %}">Casual</a>
+                  <a class="dropdown-item" href="{% url 'shoe:men_boots' %}">Boots</a>
+                  <a class="dropdown-item" href="{% url 'shoe:men_sandals' %}">Sandals</a>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-female fa-lg"></i> Women
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'shoe:women_sneakers' %}">Sneakers</a>
+                  <a class="dropdown-item" href="{% url 'shoe:women_flats' %}">Flats</a>
+                  <a class="dropdown-item" href="{% url 'shoe:women_pumps' %}">Pumps</a>
+                  <a class="dropdown-item" href="{% url 'shoe:women_boots' %}">Boots</a>
+                  <a class="dropdown-item" href="{% url 'shoe:women_sandals' %}">Sandals</a>
+                </div>
+              </li>
+
+              {% if user.is_authenticated %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'authenticate:logout' %}"> <i
+                      class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
+                </li>
+                <hr style="height:20px; width:1px; background-color:gray; margin-top: 10px;">
+
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'authenticate:edit_profile' %}"><i class="fas fa-user-edit fa-lg"></i> Edit
+                    Profile</a>
+                </li>
+                <hr style="height:20px; width:1px; background-color:gray; margin-top: 10px;">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'authenticate:change_password' %}">Change Password</a>
+                </li>
+              {% else %}
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'authenticate:login' %}"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
+                </li>
+                <hr style="height:20px; width:1px; background-color:gray; margin-top: 10px;">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'authenticate:register' %}"><i
+                      class="fas fa-registered fa-lg"></i> Register</a>
+                </li>
+              {% endif %}
+
+              
+              <li class="nav-item nav-align">
+                <a class="fas fa-shopping-cart fa-lg" href="{% url 'shoe:cart_list' shoe_id=2 %}"></a>
+              </li>
+              <li class="nav-item nav-align">
+                <a class="fas fa-user fa-lg" href="{% url 'shoe:cart_list' shoe_id=2 %}"></a>
+              </li>
+              <li class="nav-item nav-align">
+                <a class="fas fa-heart fa-lg" href="{% url 'shoe:liked_list' %}"></a>
+              </li> 
+            </ul>
+          </div>
+      </div>
+    </nav>
+
+    <br/>
+    <div class='container'>
+      {% if messages %}
+        {% for message in messages %}
+          <div class='alert alert-warning alert-dismissable' role='alert'>
+            <button class='close' data-dismiss='alert'>
+               <small><sup>x</sup></small>
+            </button>
+            {{message}}
+          </div>
+        {% endfor %}
+      {% endif%}
+
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    {% block script_block %}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/scroll.js' %}"></script>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    {% endblock %}
+  </body>
+</html>
+
+
+
