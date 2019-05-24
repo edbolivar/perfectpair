@@ -11,7 +11,6 @@ def shoe_list(request):
 	shoe_list = Shoe.objects.all()
 
 	context = {
-
 		'shoe_list': shoe_list,
 	}
 
@@ -170,7 +169,7 @@ def men_sneakers(request):
 	f3 = "Puma" if q3 == "on" else "1"
 	q4 = request.GET.get('s10')
 	q5 = request.GET.get('s9')
-	q6 = request.GET.get('s8')
+	q6 = request.GET.get('s8')	
 	f4 = 10 if q4 == "on" else 0
 	f5 = 9 if q5 == "on" else 0
 	f6 = 8 if q6 == "on" else 0
@@ -422,6 +421,7 @@ def men_sandals(request):
 	products2 = Shoe.objects.filter(Q(size__exact=f4)|Q(size__exact=f5)|Q(size__exact=f6))
 	products3 = Shoe.objects.filter(Q(color__icontains=f7)|Q(color__icontains=f8)|Q(color__icontains=f9))
 	products4 = Shoe.objects.filter(Q(price__exact=f10)|Q(price__exact=f11)|Q(price__exact=f12))
+
 	if products1.count()!=0:
 		shoe_list = shoe_list & products1
 	if products2.count()!=0:
@@ -430,6 +430,7 @@ def men_sandals(request):
 		shoe_list = shoe_list & products3
 	if products4.count()!=0:
 		shoe_list = shoe_list & products4
+
 	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
 		shoe_list = []
 		if q13=="on":
@@ -439,7 +440,6 @@ def men_sandals(request):
 		'shoe_list': shoe_list,
 	}
 	
-
 	return render(request, template, context)
 
 
@@ -716,6 +716,7 @@ def women_sandals(request):
 
 
 def new_arrivals(request):
+
 	q1 = request.GET.get('Adidas')
 	q2 = request.GET.get('Nike')
 	q3 = request.GET.get('Puma')
@@ -756,12 +757,13 @@ def new_arrivals(request):
 	if products4.count()!=0:
 		shoe_list = shoe_list & products4
 	if ((products1.count(), products2.count(), products3.count(), products4.count())==(0,0,0,0)):
-		shoe_list = []
+		shoe_list = shoe_list = Shoe.objects.filter(new=True)
 		if q13=="on":
 			shoe_list = Shoe.objects.filter(new=True)
+		else:
+			shoe_list = []
 	template = 'shoe/new_arrivals.html'
 	context = {
-
 		'shoe_list': shoe_list,
 	}
 
