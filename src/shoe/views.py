@@ -27,12 +27,10 @@ def liked_list(request):
 
 	return render(request, 'shoe/liked_list.html', context)
 
-
 def cart_list(request, shoe_id):
 
 	system = request.POST.get('cart', None)
 	delete = request.GET.get('q1')
-	print(delete)
 	shoe = get_object_or_404(Shoe, pk=shoe_id)
 	cart = Cart.objects.get(pk=2)
 	shoe_list = []
@@ -60,14 +58,11 @@ def cart_list(request, shoe_id):
 		return render(request, 'shoe/cart_list.html', context)
 
 
-
 def gender_male(request):
-
 
 	shoe_list = Shoe.objects.all()
 
 	context = {
-
 		'shoe_list': shoe_list,
 	}
 
@@ -79,7 +74,6 @@ def gender_female(request):
 	shoe_list = Shoe.objects.all()
 
 	context = {
-
 		'shoe_list': shoe_list,
 	}
 
@@ -111,6 +105,7 @@ def add_to_cart(request, shoe_id):
 	return render(request, template, context)
 
 def sidebar(request):
+	
 	q1 = request.GET.get('Adidas')
 	q2 = request.GET.get('Nike')
 	q3 = request.GET.get('Puma')
@@ -380,7 +375,6 @@ def men_boots(request):
 	context = {
 		'shoe_list': shoe_list,
 		'system': system,
-		
 	}
 
 	template = 'shoe/men_boots.html'
@@ -782,42 +776,3 @@ def like(request, shoe_id):
 	}
 
 	return render(request, template, context)
-
-
-
-    	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
